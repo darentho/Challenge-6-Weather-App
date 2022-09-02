@@ -6,7 +6,7 @@ Description:
 
 The intention is to display the current weather and five day forecast for a searched city. The searched cities will also be saved as part of the local storage function!
 
-
+Deployed Link: https://darentho.github.io/Challenge-6-Weather-App/
 
 Repo Link:
 
