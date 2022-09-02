@@ -193,3 +193,27 @@ var getCityData = function (city) {
         }
     });
 };
+
+var getWeatherData = function (city, latitude, longitude) {
+    ///5-day forecast API
+    var forecastUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&exclude=minutely,hourly&appid=" + APIkey;
+
+    fetch(forecastUrl).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data);
+
+            displayCurrentData(city, data);
+            displayForecastData(data);
+
+        });
+    });
+};
+
+//load previously searched cities on page load
+loadCities()
+
+//form submit listener when user enters city
+cityFormEl.addEventListener("submit", function () {
+    cityInput = cityInputEl.value.trim();
+    getCityData(cityInput);
+})
